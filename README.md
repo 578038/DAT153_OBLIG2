@@ -13,6 +13,33 @@ Oppdaterte oblig1 quiz app med å legge til Room database support og la til noen
 
 ![](tester.png)
 
+# DatabaseAddTest
+startAddTest:
+Sjekker størelsen til databasen
+Legger til ett element i databasen
+Sjekker at elementet er lagt til i databasen med å se om størrelsen til databasen har økt med ett element
 
-![](tester2.png)
-![](test3.png)
+# DatabaseDeleteTest
+startDeleteTest:
+Sjekker størelsen til databasen
+Sletter ett element i databasen
+Sjekker at elementet er slettet fra databasen med å se om størrelsen til databasen har blitt mindre med ett element
+
+# MainActivityTest
+startActivityTest:
+Klikker knapp til quiz activity.
+Sjekker om det som er vist på skjermen er det samme som quizActivity layout
+
+# QuizActivityTest
+startWrongTest:
+Svarer feil på quiz spørsmål
+Sjekker om scoren ikke øker
+
+startCorrectTest:
+Svarer riktig på quiz spørsmål
+Sjekker om scoren øker
+
+
+
+
+
