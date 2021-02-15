@@ -47,7 +47,7 @@ public class DatabaseDeleteTest {
             System.out.println("INGEN DATA I DATABASE");
         }
 
-        //onView(withId(R.id.quizActivity)).check(matches(isDisplayed()));
+
 
     }
 

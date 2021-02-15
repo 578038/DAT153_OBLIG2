@@ -24,6 +24,8 @@ import java.util.List;
 
 import no.hvl.dat153.oblig2.R;
 import no.hvl.dat153.oblig2.main.data.Student;
+import no.hvl.dat153.oblig2.main.data.StudentDao;
+import no.hvl.dat153.oblig2.main.data.StudentRoomDatabase;
 import no.hvl.dat153.oblig2.main.ui.StudentListAdapter;
 import no.hvl.dat153.oblig2.main.ui.StudentViewModel;
 
@@ -37,9 +39,7 @@ public class AddActivity extends AppCompatActivity {
     private StudentViewModel mViewModel;
     private Button buttonMenu;
 
-    public static int dbSize;
-
-    public static ArrayList<Student> persList;
+    public static ArrayList<Student> pList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class AddActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imagePerson); //Bilde paa ny person
         imageText = (EditText) findViewById(R.id.newPerson); //Navn paa ny person
         buttonBrowse = (Button) findViewById(R.id.browseButton); //knapp for aa se gjennom bilder
+
         mViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
 
         observerSetup();
@@ -91,19 +92,6 @@ public class AddActivity extends AppCompatActivity {
     }
 
 
-    private void observerSetup() {
-
-        mViewModel.getAllStudents().observe(this,
-                new Observer<List<Student>>() {
-                    @Override
-                    public void onChanged(@Nullable final List<Student> Students) {
-                        dbSize = Students.size();
-                    }
-                });
-
-
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -112,13 +100,6 @@ public class AddActivity extends AppCompatActivity {
         if (requestCode == 3 && data != null && resultCode == RESULT_OK) { //
 
             final Uri selectedImage = data.getData();
-
-//            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-//
-//            Cursor c = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-//            c.moveToFirst();
-//            c.close();
-
 
             imageView.setImageURI(selectedImage);
 
@@ -175,6 +156,19 @@ public class AddActivity extends AppCompatActivity {
 
     }
 
+    private void observerSetup() {
+
+        mViewModel.getAllStudents().observe(this,
+                new Observer<List<Student>>() {
+                    @Override
+                    public void onChanged(@Nullable final List<Student> Students) {
+                        pList = new ArrayList<Student>(Students);
+                    }
+                });
+
+
+    }
+
 
     private void addCamera(Bitmap bm) {
 
@@ -189,6 +183,8 @@ public class AddActivity extends AppCompatActivity {
                 Student s = new Student(name, bm);
 
                 mViewModel.insertStudent(s);
+
+
 
              ;
 

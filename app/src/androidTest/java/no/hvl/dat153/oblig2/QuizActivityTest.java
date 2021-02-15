@@ -27,14 +27,7 @@ public class QuizActivityTest {
     public ActivityScenarioRule<QuizActivity> mActivityRule = new ActivityScenarioRule<QuizActivity>(
             QuizActivity.class);
 
-//    @Test
-//    public void startCorrectTest(){
-//
-//
-//        onView(withId(R.id.button3)).perform(click());
-//        onView(withId(R.id.quizActivity)).check(matches(isDisplayed()));
-//
-//    }
+
 
     @Test
     public void startCorrectTest() throws InterruptedException {
@@ -47,8 +40,6 @@ public class QuizActivityTest {
 
 
 
-        //onView(withId(R.id.quizActivity)).check(matches(isDisplayed()));
-
     }
 
     @Test
@@ -59,10 +50,6 @@ public class QuizActivityTest {
         onView(withId(R.id.guessText)).perform(typeText("WRONG NAME"));
         onView(withId(R.id.guessButton)).perform(click());
         onView(withId(R.id.textViewScore)).check(matches(withSubstring("Score: " + 0 + "/" + QuizActivity.pList.size())));
-
-
-
-        //onView(withId(R.id.quizActivity)).check(matches(isDisplayed()));
 
     }
 

@@ -28,6 +28,7 @@ import org.junit.runner.RunWith;
 import no.hvl.dat153.oblig2.R;
 
 import no.hvl.dat153.oblig2.main.activities.AddActivity;
+import no.hvl.dat153.oblig2.main.activities.DatabaseActivity;
 
 import static android.app.Instrumentation.*;
 import static androidx.test.espresso.Espresso.onView;
@@ -54,7 +55,10 @@ public class DatabaseAddTest {
     public void startAddTest() throws InterruptedException {
         Thread.sleep(1000); //waiting so that the page loads
 
-        int siz = AddActivity.dbSize;
+
+        int n = 3; //antall element i database ved start. Ligger 3 objekt inni ved start av app
+
+
 
 
         //Legge til bilde
@@ -77,7 +81,7 @@ public class DatabaseAddTest {
 
         onView(withId(R.id.addButton)).perform(click());
 
-       //assertEquals(AddActivity.dbSize, (siz+1));  DENNE TESTEN FAILER NÅR
+        assertEquals(AddActivity.dbSize, n+1);
 
 
     }
