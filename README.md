@@ -12,3 +12,7 @@ Oppdaterte oblig1 quiz app med å legge til Room database support og la til noen
 
 
 ![](tester.png)
+
+
+![](tester2.png)
+![](test3.png)
