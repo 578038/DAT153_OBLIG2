@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="no.hvl.dat153.oblig1">
+    package="no.hvl.dat153.oblig2">
 
     <application
-        android:name="no.hvl.dat153.oblig1.Activities.Database"
+
         android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Oblig1"
         >
-        <activity android:name=".Activities.AddActivity"></activity>
-        <activity android:name=".Activities.QuizActivity" />
-        <activity android:name=".Activities.DatabaseActivity" />
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".main.activities.AddActivity"></activity>
+        <activity android:name=".main.activities.QuizActivity" />
+        <activity android:name=".main.activities.DatabaseActivity" />
+        <activity android:name=".main.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
