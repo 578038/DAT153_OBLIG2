@@ -11,4 +11,4 @@ Oppdaterte oblig1 quiz app med å legge til Room database support og la til noen
 - Sjekk om adding av element i database faktisk legger til elementet i databasen og ikke bare i bruker grensesnittet
 
 
-![](images/tester.png)
+![](tester.png)
