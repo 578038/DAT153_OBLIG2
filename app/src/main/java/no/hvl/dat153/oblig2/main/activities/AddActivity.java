@@ -40,6 +40,7 @@ public class AddActivity extends AppCompatActivity {
     private Button buttonMenu;
 
     public static ArrayList<Student> pList;
+    public static int dbSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,6 +164,7 @@ public class AddActivity extends AppCompatActivity {
                     @Override
                     public void onChanged(@Nullable final List<Student> Students) {
                         pList = new ArrayList<Student>(Students);
+                        dbSize = Students.size();
                     }
                 });
 
