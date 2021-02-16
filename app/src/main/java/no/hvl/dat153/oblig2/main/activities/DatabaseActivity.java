@@ -26,8 +26,6 @@ public class DatabaseActivity extends AppCompatActivity {
 
 
 
-//    private RecyclerView mRecyclerView;
-//    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     private Button buttonDelete;
@@ -38,7 +36,6 @@ public class DatabaseActivity extends AppCompatActivity {
 
     public static ArrayList<Student> pList;
 
-    //Endre adapter og viewmodel her slik at recyclerview kan funke slik som den skal
 
 
     @Override
@@ -76,11 +73,7 @@ deleteItemOnclick();
         });
     }
 
-//    public void deleteItem(int pos) {
-////pos-1 slik at posisjon 1 for bruker blir 1 for program, listen starter fra 1 osv...
-//        Database.removePerson(pList.get(pos - 1)); //Her sletter vi personen fra databasen, er en bug hvor "Gray blir lagt til i recycler view, men ikke i databasen.... DETTE ER BUGGEN SOM STÅR OVER I LINJE 52
-//        mAdapter.notifyItemRemoved(pos - 1);
-//    }
+
 
     public void goAdd(View View) {
         Intent i = new Intent(this, AddActivity.class);
@@ -132,24 +125,14 @@ deleteItemOnclick();
         adapter = new StudentListAdapter(R.layout.student_list_item);
         recyclerView = findViewById(R.id.recyclerView);
 
-//        mLayoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(mLayoutManager);
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
 
-//    public void buildRecyclerView() {
-//        mRecyclerView = findViewById(R.id.recyclerView);
-//        //mRecyclerView.setHasFixedSize(true);  //wont change in size
-//        mLayoutManager = new LinearLayoutManager(this);
-//
-//        mAdapter = new AdapterDatabas(pList);
-//
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mRecyclerView.setAdapter(mAdapter);
-//    }
+
 
 
 }

@@ -29,7 +29,6 @@ public class StudentViewModel extends AndroidViewModel {
         repository = new StudentRepository(application);
         allStudents = repository.getAllStudents();
 
-        //allStudentsList = repository.getAllStudentsList();
 
         searchResults = repository.getSearchResults();
     }

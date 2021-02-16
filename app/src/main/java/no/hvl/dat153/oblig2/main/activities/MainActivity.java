@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Add click delete på database. Og add index til database personer
 
     public void goDatabase(View View) {
         Intent i = new Intent(this, DatabaseActivity.class);

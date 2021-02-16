@@ -23,7 +23,7 @@ public class Student {
 
     @ColumnInfo(name="studentImg")
     private Bitmap img;
-    //private int img;
+
 
 
     public Student(String name, Bitmap img){
@@ -31,11 +31,7 @@ public class Student {
         this.img = img;
         this.id = id;
     }
-//        public Student(String name, int img){
-//        this.name = name;
-//        this.img = img;
-//        this.id = id;
-//    }
+
 
 
 
@@ -51,13 +47,7 @@ public class Student {
         this.img = img;
     }
 
-//    public int getImg() {
-//        return img;
-//    }
-//
-//    public void setImg(int img) {
-//        this.img = img;
-//    }
+
 
     public int getId() {
         return id;
