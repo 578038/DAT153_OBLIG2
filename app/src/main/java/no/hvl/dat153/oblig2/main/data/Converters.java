@@ -12,10 +12,8 @@ public class Converters {
 
     @TypeConverter
     public static byte[] fromBitmap(Bitmap bm){
-
         OutputStream outputStream = new ByteArrayOutputStream();
         bm.compress(Bitmap.CompressFormat.PNG, 30, outputStream);
-
         return ((ByteArrayOutputStream) outputStream).toByteArray();
 
     }

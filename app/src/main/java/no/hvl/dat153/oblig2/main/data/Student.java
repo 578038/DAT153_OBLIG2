@@ -12,7 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Entity(tableName = "students")
 public class Student {
 
-
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "studentId")
@@ -24,16 +23,11 @@ public class Student {
     @ColumnInfo(name="studentImg")
     private Bitmap img;
 
-
-
     public Student(String name, Bitmap img){
         this.name = name;
         this.img = img;
         this.id = id;
     }
-
-
-
 
     public String getName() {
         return name;
@@ -47,8 +41,6 @@ public class Student {
         this.img = img;
     }
 
-
-
     public int getId() {
         return id;
     }
@@ -60,8 +52,6 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
-
-
 
     @Override
     public String toString() {

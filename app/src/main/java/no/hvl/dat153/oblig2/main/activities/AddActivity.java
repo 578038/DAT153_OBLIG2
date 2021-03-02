@@ -39,6 +39,8 @@ public class AddActivity extends AppCompatActivity {
     private StudentViewModel mViewModel;
     private Button buttonMenu;
 
+
+    // STATIC HER IKKE BRA
     public static ArrayList<Student> pList;
     public static int dbSize;
 
@@ -46,9 +48,6 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-
-
-
         buttonAdd = (Button) findViewById(R.id.addButton);
         buttonMenu = (Button) findViewById(R.id.buttonMenu2);
         imageView = (ImageView) findViewById(R.id.imagePerson); //Bilde paa ny person
@@ -56,7 +55,6 @@ public class AddActivity extends AppCompatActivity {
         buttonBrowse = (Button) findViewById(R.id.browseButton); //knapp for aa se gjennom bilder
 
         mViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
-
         observerSetup();
 
 
@@ -86,39 +84,23 @@ public class AddActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       //gallery
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 3 && data != null && resultCode == RESULT_OK) { //
-
             final Uri selectedImage = data.getData();
-
             imageView.setImageURI(selectedImage);
-
             addPicture(selectedImage);
-
         }
         // KAMERA
         else if (requestCode == 0 && resultCode == RESULT_OK && data != null) {
-
             Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(selectedImage);
-
-
             addCamera(selectedImage);
-
         }
-
-
     }
 
 
@@ -128,29 +110,20 @@ public class AddActivity extends AppCompatActivity {
 
 
     private void addPicture(final Uri valgtImage) {
-
-
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String name = imageText.getText().toString();
-
                 Bitmap personImage = null;
                 try {
                     personImage = MediaStore.Images.Media.getBitmap(getContentResolver(), valgtImage);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ;
 
                 Student s = new Student(name, personImage);
-
                 mViewModel.insertStudent(s);
-
                 Toast.makeText(AddActivity.this, "Person: " + s.getName() + " was added to the LIST! Click DATABASE button to see changes", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 
@@ -158,7 +131,6 @@ public class AddActivity extends AppCompatActivity {
     }
 
     private void observerSetup() {
-
         mViewModel.getAllStudents().observe(this,
                 new Observer<List<Student>>() {
                     @Override
@@ -167,38 +139,21 @@ public class AddActivity extends AppCompatActivity {
                         dbSize = Students.size();
                     }
                 });
-
-
     }
 
 
     private void addCamera(Bitmap bm) {
-
-
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String name = imageText.getText().toString();
-
-
                 Student s = new Student(name, bm);
 
                 mViewModel.insertStudent(s);
-
-
-
-             ;
-
                 Toast.makeText(AddActivity.this, "Person: " + s.getName() + " was added to the LIST! Click DATABASE button to see changes", Toast.LENGTH_SHORT).show();
-
-
             }
         });
-
-
     }
-
 
     public void goDatabase(View View) {
         Intent i = new Intent(this, DatabaseActivity.class);
@@ -209,6 +164,4 @@ public class AddActivity extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
-
-
 }

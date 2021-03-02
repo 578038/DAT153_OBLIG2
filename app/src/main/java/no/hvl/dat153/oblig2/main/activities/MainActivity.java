@@ -15,19 +15,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
-
-
 
     public void goDatabase(View View) {
         Intent i = new Intent(this, DatabaseActivity.class);
         startActivity(i);
     }
-
-
-
 
     public void goQuiz(View View) {
         Intent i = new Intent(this, QuizActivity.class);
@@ -38,9 +31,4 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, AddActivity.class);
         startActivity(i);
     }
-
-
-
-
-
 }

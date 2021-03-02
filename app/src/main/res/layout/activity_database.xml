@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="100dp"
-        android:padding="10dp"
+        android:padding="7dp"
         android:scrollbars="vertical" />
 
     <TableRow
@@ -26,9 +26,10 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
             android:text="Skriv inn Id for element du vil slette!"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </TableRow>
 
@@ -41,7 +42,10 @@
             android:id="@+id/button_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete" />
+            android:layout_marginStart="7dp"
+            android:text="Delete"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/edittext_delete"

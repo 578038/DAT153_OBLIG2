@@ -56,14 +56,11 @@ public abstract class StudentRoomDatabase extends RoomDatabase {
                         }
                     }).
                    fallbackToDestructiveMigration().build();
-
-
                 }
             }
         }
 
         return INSTANCE;
-
 
     }
 

@@ -14,9 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
+        android:layout_marginStart="16dp"
         android:text="Add a picture from your album and a name"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="22dp" />
+        tools:layout_editor_absoluteX="22dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
 
 
 

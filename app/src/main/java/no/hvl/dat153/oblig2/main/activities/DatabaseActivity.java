@@ -27,16 +27,13 @@ public class DatabaseActivity extends AppCompatActivity {
 
 
     private RecyclerView.LayoutManager mLayoutManager;
-
     private Button buttonDelete;
     private EditText editTextDelete;
-
     private StudentViewModel mViewModel;
     private StudentListAdapter adapter;
 
+    //static her ikke bra
     public static ArrayList<Student> pList;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,22 +41,12 @@ public class DatabaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_database);
 
         mViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
-
-
-        observerSetup();
-        recyclerSetup();
-
-
         buttonDelete = findViewById(R.id.button_delete);
         editTextDelete = findViewById(R.id.edittext_delete);
 
-
-
-
-
-
-deleteItemOnclick();
-
+        observerSetup();
+        recyclerSetup();
+        deleteItemOnclick();
     }
 
 
@@ -68,7 +55,6 @@ deleteItemOnclick();
             @Override
             public void onClick(View view) {
                 mViewModel.deleteStudentId(Integer.parseInt(editTextDelete.getText().toString()));
-
             }
         });
     }
@@ -85,16 +71,12 @@ deleteItemOnclick();
         startActivity(i);
     }
 
-
     public void resetView(View View) {
         Intent i = new Intent(this, DatabaseActivity.class);
         startActivity(i);
     }
 
-
-
     private void observerSetup() {
-
         mViewModel.getAllStudents().observe(this,
                 new Observer<List<Student>>() {
                     @Override
@@ -103,8 +85,6 @@ deleteItemOnclick();
                         adapter.setStudentList(Students);
                     }
                 });
-
-
     }
 
     public void deleteItem(int id) {
@@ -112,27 +92,16 @@ deleteItemOnclick();
         @Override
         public void onClick(View view) {
             mViewModel.deleteStudentId(id);
-
         }
     });
 }
 
-
         private void recyclerSetup() {
-
         RecyclerView recyclerView;
-
         adapter = new StudentListAdapter(R.layout.student_list_item);
         recyclerView = findViewById(R.id.recyclerView);
-
-
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
-
-
-
-
-
 }

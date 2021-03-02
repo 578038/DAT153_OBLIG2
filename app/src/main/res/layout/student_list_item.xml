@@ -28,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="52dp"
             android:layout_weight="1"
-
+            android:textSize="24dp"
+            android:textColor="@color/red"
             android:text="TextView" />
 
     </TableLayout>
@@ -36,7 +37,6 @@
 
     <ImageView
         android:id="@+id/student_img"
-
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="150dp"

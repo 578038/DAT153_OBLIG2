@@ -31,7 +31,8 @@
         android:onClick="goDatabase"
         android:text="Database"
         tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="119dp" />
+        tools:layout_editor_absoluteY="119dp"
+        android:textSize="20dp"/>
 
     <Button
         android:id="@+id/button2"
@@ -41,7 +42,8 @@
         android:onClick="goQuiz"
         android:text="Quiz"
         tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="195dp" />
+        tools:layout_editor_absoluteY="195dp"
+        android:textSize="20dp"/>
 
     <Button
         android:id="@+id/button3"
@@ -51,9 +53,8 @@
         android:onClick="goAdd"
         android:text="Add picture"
         tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="274dp" />
-
-
+        tools:layout_editor_absoluteY="274dp"
+        android:textSize="20dp"/>
 
 
 </LinearLayout>

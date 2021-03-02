@@ -13,7 +13,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:textColor="@color/red"
         android:text="Anwser the name of the person in the picture, click reset button when done to start new, NOT CASESENSITIVE"
         tools:layout_editor_absoluteX="23dp"
@@ -24,7 +24,8 @@
         android:id="@+id/textViewScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14dp"
+        android:textSize="20dp"
+        android:textColor="@color/purple_500"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="21dp" />
 
@@ -32,7 +33,8 @@
         android:id="@+id/textViewCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14dp"
+        android:textSize="20dp"
+        android:textColor="@color/purple_500"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="21dp" />
 
@@ -63,7 +65,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/guessText"
         android:layout_toEndOf="@+id/guessText"
-        android:text="Guess Person" />
+        android:text="Guess Person"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        />
 
 
     </TableRow>

@@ -14,28 +14,21 @@ import androidx.lifecycle.LiveData;
 public class StudentRepository {
 
     StudentRoomDatabase db;
-
-
     private MutableLiveData<List<Student>> searchResults =
             new MutableLiveData<>();
+
     private LiveData<List<Student>> allStudents;
     private StudentDao StudentDao;
 
-
-
     public LiveData<List<Student>> getAllStudents() {
-
         return allStudents;
     }
-
-
 
     public MutableLiveData<List<Student>> getSearchResults() {
         return searchResults;
     }
 
     public StudentRepository(Application application) {
-
         db = StudentRoomDatabase.getDatabase(application);
         StudentDao = db.studentDao();
         allStudents = StudentDao.getAllStudents();
