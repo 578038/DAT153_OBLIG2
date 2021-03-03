@@ -66,6 +66,7 @@ public class DatabaseAddTest {
             onView(withId(R.id.browseButton)).perform(click());
             intended(expectedIntent);
             onView(withId(R.id.addButton)).perform(click());
+            Thread.sleep(750); //waiting so that the person is added
             assertEquals(activity.getDatabaseSize(), n + 1);
         }
 
