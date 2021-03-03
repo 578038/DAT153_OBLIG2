@@ -16,20 +16,12 @@ public class StudentViewModel extends AndroidViewModel {
 
     private StudentRepository repository;
     private LiveData<List<Student>> allStudents;
-
-    private LiveData<List<Student>> allStudentsList;
-
     private MutableLiveData<List<Student>> searchResults;
 
     public StudentViewModel (Application application) {
         super(application);
-
-
-
         repository = new StudentRepository(application);
         allStudents = repository.getAllStudents();
-
-
         searchResults = repository.getSearchResults();
     }
 
@@ -38,19 +30,8 @@ public class StudentViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Student>> getAllStudents() {
-
-
         return allStudents;
     }
-
-
-    public LiveData<List<Student>> getAllStudentsList() {
-
-
-        return allStudentsList;
-    }
-
-
 
     public void insertStudent(Student Student) {
         repository.insertStudent(Student);

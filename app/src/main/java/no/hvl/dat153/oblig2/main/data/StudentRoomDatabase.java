@@ -59,10 +59,7 @@ public abstract class StudentRoomDatabase extends RoomDatabase {
                 }
             }
         }
-
         return INSTANCE;
-
     }
-
 
 }

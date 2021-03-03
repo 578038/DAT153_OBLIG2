@@ -30,8 +30,6 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         notifyDataSetChanged();
     }
 
-
-
     @Override
     public int getItemCount() {
         return StudentList == null ? 0 : StudentList.size();
@@ -60,17 +58,13 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView itemText;
-
         ImageView itemImg;
-
         TextView itemId;
 
         ViewHolder(View itemView) {
             super(itemView);
             itemText = itemView.findViewById(R.id.student_row);
-
             itemImg = itemView.findViewById(R.id.student_img);
-
             itemId = itemView.findViewById(R.id.student_id);
         }
     }

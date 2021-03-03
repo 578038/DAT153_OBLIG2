@@ -37,10 +37,6 @@ public class Student {
         return img;
     }
 
-    public void setImg(Bitmap img) {
-        this.img = img;
-    }
-
     public int getId() {
         return id;
     }

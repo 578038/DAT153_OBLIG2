@@ -26,9 +26,6 @@ public class MainActivityTest {
 
     @Test
     public void startActivityTest(){
-
-
-
         onView(withId(R.id.button3)).perform(click());
         onView(withId(R.id.quizActivity)).check(matches(isDisplayed()));
 

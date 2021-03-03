@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -36,7 +37,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button buttonGuess;
 
     private StudentViewModel mViewModel;
-    public static ArrayList<Student> pList;//Kopi av databasen slik at vi har oversikt over hvilken som er svart og ikke svart
+    public ArrayList<Student> pList;//Kopi av databasen slik at vi har oversikt over hvilken som er svart og ikke svart
     private int index;
     private int score;
 
@@ -48,7 +49,6 @@ public class QuizActivity extends AppCompatActivity {
         mViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
         observerSetup();
     }
-
 
     private void observerSetup() {
         mViewModel.getAllStudents().observe(this,
@@ -62,14 +62,13 @@ public class QuizActivity extends AppCompatActivity {
                         scoreText = (TextView) findViewById(R.id.textViewScore);
                         counterText = (TextView) findViewById(R.id.textViewCounter);
 
+
                         pList = new ArrayList<Student>(Students);
                         Collections.shuffle(pList); //stokker listen slik at den blir tilfeldig
-
                         index = 0;
                         scoreText.setText("Score: " + score + "/" + pList.size());
                         counterText.setText("Persons left: " + (pList.size() - index));
                         nextPerson();
-
 
                         // Legger til en listener på edit text slik at bruker kan trykke enter på tastatur for å gjette
                         guessText.setOnKeyListener(new View.OnKeyListener() {
@@ -82,7 +81,6 @@ public class QuizActivity extends AppCompatActivity {
                                 return false;
                             }
                         });
-
                         //kan også trykke på knapp
                         buttonGuess.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -96,10 +94,7 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-
-
     public void checkCorrect() {
-
         Student p = pList.get(index);
         index++;
         if (p.getName().equals(guessText.getEditableText().toString())) {
@@ -126,7 +121,6 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-
     public void nextPerson() {
         if (pList.size() > index) {
             Student pers = pList.get(index);
@@ -139,18 +133,22 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-
     public void resetQuiz(View View) {
         recreate();
     }
-
 
     public void goMenu(View View) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 
+    public String getFirstPerson(){
+        return pList.get(0).getName();
+    }
 
+    public int getDatabaseSize(){
+        return pList.size();
+    }
 
     public void makeGuess(){
         if (guessText.getText().toString().equals("")) {

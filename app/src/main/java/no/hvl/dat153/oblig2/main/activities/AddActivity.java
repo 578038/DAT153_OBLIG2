@@ -38,11 +38,7 @@ public class AddActivity extends AppCompatActivity {
     private Button buttonAdd;
     private StudentViewModel mViewModel;
     private Button buttonMenu;
-
-
-    // STATIC HER IKKE BRA
-    public static ArrayList<Student> pList;
-    public static int dbSize;
+    public ArrayList<Student> pList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +49,8 @@ public class AddActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imagePerson); //Bilde paa ny person
         imageText = (EditText) findViewById(R.id.newPerson); //Navn paa ny person
         buttonBrowse = (Button) findViewById(R.id.browseButton); //knapp for aa se gjennom bilder
-
         mViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
         observerSetup();
-
 
         buttonBrowse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,12 +97,6 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
-
-
-
-
-
-
     private void addPicture(final Uri valgtImage) {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,8 +114,6 @@ public class AddActivity extends AppCompatActivity {
                 Toast.makeText(AddActivity.this, "Person: " + s.getName() + " was added to the LIST! Click DATABASE button to see changes", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     private void observerSetup() {
@@ -136,11 +122,9 @@ public class AddActivity extends AppCompatActivity {
                     @Override
                     public void onChanged(@Nullable final List<Student> Students) {
                         pList = new ArrayList<Student>(Students);
-                        dbSize = Students.size();
                     }
                 });
     }
-
 
     private void addCamera(Bitmap bm) {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -150,9 +134,14 @@ public class AddActivity extends AppCompatActivity {
                 Student s = new Student(name, bm);
 
                 mViewModel.insertStudent(s);
-                Toast.makeText(AddActivity.this, "Person: " + s.getName() + " was added to the LIST! Click DATABASE button to see changes", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddActivity.this, "Person: " + s.getName() +
+                        " was added to the LIST! Click DATABASE button to see changes", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public int getDatabaseSize(){
+        return pList.size();
     }
 
     public void goDatabase(View View) {
